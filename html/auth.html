@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box auth-image">
+            <img src="../assets/images/qmicon.png" alt="Quantity Measurement Icon">
+            <h2>QUANTITY MEASUREMENT</h2>
+        </div>
+        <div class="auth-box from-container">
+            <div class="choose-option">
+                <button id="login-tab" class="active" onclick="showLoginForm()">Login</button>
+                <button id="signup-tab" onclick="showSignupForm()">Signup</button>
+            </div>
+
+            <div id="login-box" class="login-box">
+                <form id="formLogin">
+                    <div class="f-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="f-group">
+                        <label>Password</label>
+                        <div class="password-container">
+                            <input type="password" id="login-password" required>
+                            <button type="button" class="toggle-password" data-target="login-password">Show</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <h5 id="text-mid"><span>Or</span></h5>
+                    <p style="text-align:center">New user? <span id="btn-choice" onclick="showSignupForm()">Signup</span></p>
+                </form>
+            </div>
+
+            <div id="signup-box" class="signup-box" style="display: none;">
+                <form id="formSignup">
+                    <div class="f-group">
+                        <label>Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="f-group">
+                        <label>Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="f-group">
+                        <label>Password</label>
+                        <div class="password-container">
+                            <input type="password" id="password" required>
+                            <button type="button" class="toggle-password" data-target="password">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="f-group">
+                        <label>Confirm Password</label>
+                        <div class="password-container">
+                            <input type="password" id="confirmPassword" required>
+                            <button type="button" class="toggle-password" data-target="confirmPassword">Show</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                    <h5 id="text-mid"><span>Or</span></h5>
+                    <p style="text-align:center">Already have an account? <span id="btn-choice" onclick="showLoginForm()">Login</span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.from-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 420px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 50px;
+}
+
+/* this is tabs UI */
+.choose-option {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+}
+
+.choose-option button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* The will highlight effect */
+.choose-option button.active {
+    color: rgb(247, 38, 38);
+}
+
+.choose-option button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(247, 38, 38);
+}
+
+.f-group { 
+    margin-bottom: 15px; 
+}
+label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-size: 14px; 
+}
+input { 
+    width: 100%; 
+    padding: 10px 50px 10px 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(247, 38, 38);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: rgb(200, 25, 25);
+    box-shadow: 0 4px 15px rgba(247, 38, 38, 0.4);
+}
+
+#text-mid {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    line-height: 0.1em;
+    margin: 25px 0;
+}
+
+#text-mid span { 
+    background: #fff;
+    padding: 0 10px;
+    color: #888;
+}
+#btn-choice {
+    cursor: pointer; 
+    color: rgb(247, 38, 38); 
+    font-weight: bold; 
+}
+#btn-choice:hover {
+    text-decoration: underline; 
+}
+
+/* Container for the authentication page */
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; /* Removed gap between the boxes */
+    padding: 2rem;
+}
+
+/* General styling for both boxes */
+.auth-box {
+    background-color: white;
+    padding: 55px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styling for the image and title */
+.auth-image {
+    text-align: center;
+    align-items: center;
+    border-radius: 12px 0 0 12px;
+    max-width: 300px;
+}
+
+.auth-image img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 0.5rem; /* Reduced gap between image and text */
+}
+
+.auth-image h2 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin: 0; /* Removed extra margin */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .from-container {
+        width: 95%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .choose-option {
+        margin-bottom: 20px;
+    }
+
+    .choose-option button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .f-group {
+        margin-bottom: 12px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input {
+        padding: 8px 40px 8px 8px;
+    }
+
+    .toggle-password {
+        right: 8px;
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        padding: 10px;
+    }
+
+    .auth-container {
+        padding: 1rem;
+        flex-direction: column;
+    }
+
+    .auth-box {
+        padding: 30px 20px;
+    }
+
+    .auth-image {
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .auth-image img {
+        max-width: 120px;
+    }
+
+    .auth-image h2 {
+        font-size: 1.2rem;
+    }
+}
