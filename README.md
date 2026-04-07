@@ -120,4 +120,4 @@ QuantityMeasurementApp
 
 ## 🔗 Source Code
 
-[Frontend Code - Angular Implementation]([https://github.com/Arif-Iqubal/QuantityMeasurementApp](https://github.com/Arif-Iqubal/QuantityMeasurementApp-Frontend/tree/feature/frontend-angular))
+[Frontend Code - Angular Implementation](https://github.com/Arif-Iqubal/QuantityMeasurementApp-Frontend/tree/feature/frontend-angular)
