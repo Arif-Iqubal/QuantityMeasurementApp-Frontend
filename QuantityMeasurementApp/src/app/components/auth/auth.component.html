@@ -1,0 +1,123 @@
+<div class="auth-container">
+
+  <!-- LEFT SIDE -->
+  <div class="auth-box auth-image">
+    <img src="/images/qmicon.png" alt="logo">
+    <h2>QUANTITY MEASUREMENT</h2>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-box from-container">
+
+    <!-- Tabs -->
+    <div class="choose-option">
+      <button [class.active]="isLoginMode" (click)="toggleMode(true)">Login</button>
+      <button [class.active]="!isLoginMode" (click)="toggleMode(false)">Signup</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="isLoginMode">
+
+      <div class="f-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Enter your email">
+        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+          <span *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email address</span>
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label>Password</label>
+        <div class="password-container">
+          <input [type]="showPasswordLogin ? 'text' : 'password'" formControlName="password" placeholder="Enter your password">
+          <button type="button" (click)="togglePassword('login')">
+            {{ showPasswordLogin ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</span>
+        </div>
+      </div>
+
+      <button class="submit-btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <h5 id="text-mid"><span>Or</span></h5>
+
+      <button type="button" class="submit-btn" (click)="loginWithGoogle()">
+        Login with Google
+      </button>
+
+    </form>
+
+    <!-- SIGNUP -->
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" *ngIf="!isLoginMode">
+
+      <div class="f-group">
+        <label>Username</label>
+        <input type="text" formControlName="username" placeholder="Choose a username">
+        <div class="error-message" *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+          <span *ngIf="signupForm.get('username')?.errors?.['required']">Username is required</span>
+          <span *ngIf="signupForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters</span>
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Enter your email">
+        <div class="error-message" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          <span *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</span>
+          <span *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email address</span>
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label>Password</label>
+        <div class="password-container">
+          <input [type]="showPasswordSignup ? 'text' : 'password'" formControlName="password" placeholder="Create a strong password">
+          <button type="button" (click)="togglePassword('signup')">
+            {{ showPasswordSignup ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+        <div class="error-message" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          <div *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</div>
+          <div *ngIf="signupForm.get('password')?.errors?.['passwordStrength']" class="password-requirements">
+            Password must contain:
+            <ul>
+              <li [class.valid]="signupForm.get('password')?.errors?.['passwordStrength'].hasMinLength">At least 8 characters</li>
+              <li [class.valid]="signupForm.get('password')?.errors?.['passwordStrength'].hasUpperCase">One uppercase letter</li>
+              <li [class.valid]="signupForm.get('password')?.errors?.['passwordStrength'].hasLowerCase">One lowercase letter</li>
+              <li [class.valid]="signupForm.get('password')?.errors?.['passwordStrength'].hasNumeric">One number</li>
+              <li [class.valid]="signupForm.get('password')?.errors?.['passwordStrength'].hasSpecial">One special character (#?!@$%^&*-)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label>Confirm Password</label>
+        <div class="password-container">
+          <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" placeholder="Confirm your password">
+          <button type="button" (click)="togglePassword('confirm')">
+            {{ showConfirmPassword ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+        <div class="error-message" *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">
+          <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">Please confirm your password</span>
+        </div>
+        <div class="error-message" *ngIf="signupForm.errors?.['passwordMismatch'] && signupForm.get('confirmPassword')?.touched">
+          <span>Passwords do not match</span>
+        </div>
+      </div>
+
+      <button class="submit-btn" type="submit" [disabled]="signupForm.invalid">Create Account</button>
+
+    </form>
+
+    <!-- ERROR -->
+    <p style="color:red; text-align:center;" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+  </div>
+</div>
