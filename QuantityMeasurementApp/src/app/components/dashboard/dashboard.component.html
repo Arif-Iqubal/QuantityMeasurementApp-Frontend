@@ -33,8 +33,10 @@
     <section class="section">
       <h3 class="section-title">CHOOSE ACTION</h3>
       <div class="action-grid">
-        <button class="action-btn" [class.active]="selectedAction === 'compare'" (click)="setAction('compare')">Comparison</button>
-        <button class="action-btn" [class.active]="selectedAction === 'convert'" (click)="setAction('convert')">Conversion</button>
+        <button class="action-btn" [class.active]="selectedAction === 'compare'"
+          (click)="setAction('compare')">Comparison</button>
+        <button class="action-btn" [class.active]="selectedAction === 'convert'"
+          (click)="setAction('convert')">Conversion</button>
         <button class="action-btn" [class.active]="isArithmeticMode" (click)="setAction('add')">Arithmetic</button>
       </div>
     </section>
@@ -71,7 +73,16 @@
 
       <div *ngIf="result" class="result-display">
         <label>RESULT</label>
-        <div class="result-row">
+
+        <!-- Compare case -->
+        <div *ngIf="selectedAction === 'compare'" class="result-row">
+          <h2>
+            {{ result.resultValue === 1 ? 'Equal' : 'Not Equal' }}
+          </h2>
+        </div>
+
+        <!-- Other cases -->
+        <div *ngIf="selectedAction !== 'compare'" class="result-row">
           <h2>{{ result.resultValue | number:'1.1-3' }}</h2>
           <span>{{ result.resultUnit }}</span>
         </div>

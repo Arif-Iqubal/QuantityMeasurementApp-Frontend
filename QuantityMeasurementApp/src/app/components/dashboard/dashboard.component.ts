@@ -28,9 +28,9 @@ export class DashboardComponent implements OnInit {
   showHistory = false;
   
   units: any = {
-    LengthUnit: ["FEET", "INCHES", "YARD", "CENTIMETERS"],
+    LengthUnit: ["FEET", "INCHES", "YARDS", "CENTIMETERS"],
     WeightUnit: ["KILOGRAM", "GRAM", "POUND"],
-    VolumeUnit: ["MILLILITER", "LITRE", "GALLON"],
+    VolumeUnit: ["MILLILITRE", "LITRE", "GALLON"],
     TemperatureUnit: ["CELSIUS", "FAHRENHEIT", "KELVIN"]
   };  
 
